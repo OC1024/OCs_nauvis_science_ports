@@ -13,6 +13,20 @@ if mods["OCs_alt_sciences"] then
         ["emplant-utility-science-pack"] = "emp-science-packs-tech",
     }
     oc_helper.add_recipe_unlocks(recipe_unlocks)
+
+    -- add nauvis-science-port recipes to the prod bonus techs
+    local recipe_tech_bonus = {
+        ["foundry-automation-science-pack"] = "foundry-science-packs-productivity-tech",
+        ["foundry-logistic-science-pack"] = "foundry-science-packs-productivity-tech",
+        ["foundry-military-science-pack"] = "foundry-science-packs-productivity-tech",
+        ["biochamber-chemical-science-pack"] = "biochamber-science-packs-productivity-tech",
+        ["biochamber-space-science-pack"] = "biochamber-science-packs-productivity-tech",
+        ["emplant-production-science-pack"] = "emp-science-packs-productivity-tech",
+        ["emplant-utility-science-pack"] = "emp-science-packs-productivity-tech",
+    }
+    for recipe_name, techname in pairs(recipe_tech_bonus) do
+        oc_helper.add_productivity_bonus(techname, recipe_name, 0.05) -- 5% bonus, same as the base science packs
+    end
 else
     log("OCs Alt Sciences not found, OCs Nauvis Science Ports will use default Techs.")
 

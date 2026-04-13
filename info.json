@@ -10,6 +10,7 @@
     "base >= 2.0",
     "space-age",
     "OCs_base_assets >= 0.3.5",
-    "? OCs_alt_sciences >= 0.2.0"
+    "? OCs_alt_sciences >= 0.2.0",
+    "? science-tab"
   ]
 }
