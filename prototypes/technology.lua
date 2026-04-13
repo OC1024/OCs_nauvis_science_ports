@@ -1,3 +1,5 @@
+local oc_helper = require("__OCs_base_assets__.prototypes.utils.helper")
+
 if mods["OCs_alt_sciences"] then
     log("OCs Alt Sciences Techs are used for OCs Nauvis Science Ports")
 
@@ -6,11 +8,11 @@ if mods["OCs_alt_sciences"] then
         ["foundry-logistic-science-pack"] = "foundry-science-packs-tech",
         ["foundry-military-science-pack"] = "foundry-science-packs-tech",
         ["biochamber-chemical-science-pack"] = "biochamber-science-packs-tech",
-        ["biochamber-bio-space-science-pack"] = "biochamber-science-packs-tech",
+        ["biochamber-space-science-pack"] = "biochamber-science-packs-tech",
         ["emplant-production-science-pack"] = "emp-science-packs-tech",
         ["emplant-utility-science-pack"] = "emp-science-packs-tech",
     }
-    add_recipe_unlocks(recipe_unlocks)
+    oc_helper.add_recipe_unlocks(recipe_unlocks)
 else
     log("OCs Alt Sciences not found, OCs Nauvis Science Ports will use default Techs.")
 
@@ -19,9 +21,9 @@ else
         ["foundry-logistic-science-pack"] = "logistic-science-pack",
         ["foundry-military-science-pack"] = "military-science-pack",
         ["biochamber-chemical-science-pack"] = "chemical-science-pack",
-        ["biochamber-bio-space-science-pack"] = "space-science-pack",
+        ["biochamber-space-science-pack"] = "space-science-pack",
         ["emplant-production-science-pack"] = "production-science-pack",
         ["emplant-utility-science-pack"] = "utility-science-pack",
     }
-    add_recipe_unlocks(recipe_unlocks)
+    oc_helper.add_recipe_unlocks(recipe_unlocks)
 end
