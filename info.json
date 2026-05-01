@@ -1,16 +1,16 @@
 {
   "name": "OCs_nauvis_science_ports",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "OCs Nauvis Science Ports",
   "author": "OC1024",
   "space_travel_required": true,
-  "description": "This mod enables the usage of Nauvis (basegame) science packs in non-Nauvis buildings. It adds ports to buildings from other mods to input Nauvis science packs.",
+  "description": "This mod enables the usage of Nauvis (basegame) science packs in non-Nauvis buildings. It adds ports to buildings from other mods to input Nauvis science packs. Choose between cloned recipes and the same but added categoy.",
   "factorio_version": "2.0",
   "dependencies": [
     "base >= 2.0",
     "space-age",
-    "OCs_base_assets >= 0.3.5",
-    "? OCs_alt_sciences >= 0.2.0",
+    "OCs_base_assets >= 0.4.3",
+    "? OCs_alt_sciences >= 0.2.1",
     "? science-tab"
   ]
 }

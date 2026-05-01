@@ -1,5 +1,6 @@
 local icon_helper = require("__OCs_base_assets__.prototypes.utils.icon_helper")
 local oc_helper = require("__OCs_base_assets__.prototypes.utils.helper")
+local oc_recipe = require("__OCs_base_assets__.prototypes.utils.oc_recipe")
 
 if settings.startup["science-cloning"].value then
   local science_ports = {
@@ -44,7 +45,7 @@ if settings.startup["science-cloning"].value then
 
     category_mapping[new_name] = target_category
 
-    oc_helper.change_recipes_subgroup({ [new_name] = "science-pack-alternative" })
+    oc_recipe.change_recipes_subgroup({ [new_name] = "science-pack-alternative" })
 
     icon_helper.apply_overlay({
       type = "recipe",
@@ -53,10 +54,9 @@ if settings.startup["science-cloning"].value then
       options = { resolve_inherited = true, auto_rescale = true }
     })
   end
-  oc_helper.change_multiple_crafting_category(category_mapping)
+  oc_recipe.change_multiple_crafting_category(category_mapping)
 else -- changing the category
   local category_mapping = {
-
     ["automation-science-pack"] = "pressing",
     ["logistic-science-pack"] = "pressing",
     ["military-science-pack"] = "pressing",
@@ -65,5 +65,5 @@ else -- changing the category
     ["production-science-pack"] = "electronics",
     ["utility-science-pack"] = "electronics",
   }
-  oc_helper.change_multiple_crafting_category(category_mapping)
+  oc_recipe.change_multiple_crafting_category(category_mapping)
 end

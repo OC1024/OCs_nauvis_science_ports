@@ -1,5 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 2026-04-27
+  Compatibility:
+    - Updated dependency of [OCs Base Assets] to >=0.4.2, where helper functions were re-grouped and calculation errors were fixed.
+    - Updated dependency of [OCs Alt Science] as it also requires the newer base mod.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
-Date: 2026-02-10-wip
+Date: 2026-04-13
   Major Features:
     - Initial release. Idea by me and Jhorr.
