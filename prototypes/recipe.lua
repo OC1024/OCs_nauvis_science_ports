@@ -57,13 +57,13 @@ if settings.startup["science-cloning"].value then
   oc_recipe.change_multiple_crafting_category(category_mapping)
 else -- changing the category
   local category_mapping = {
-    ["automation-science-pack"] = "pressing",
-    ["logistic-science-pack"] = "pressing",
-    ["military-science-pack"] = "pressing",
-    ["chemical-science-pack"] = "organic-or-hand-crafting",
-    ["space-science-pack"] = "organic-or-assembling",-- is the same as "organic-or-hand-crafting"
-    ["production-science-pack"] = "electronics",
-    ["utility-science-pack"] = "electronics",
+    ["automation-science-pack"] = { "metallurgy" },-- must be allowed by handcrafting ("crafting"), otherwise hardlocked
+    ["logistic-science-pack"]   = { "metallurgy" },
+    ["military-science-pack"]   = { "metallurgy" },
+    ["chemical-science-pack"]   = { "organic" },
+    ["space-science-pack"]      = { "organic" },
+    ["production-science-pack"] = { "electromagnetics" },
+    ["utility-science-pack"]    = { "electromagnetics" },
   }
-  oc_recipe.change_multiple_crafting_category(category_mapping)
+  oc_recipe.add_multiple_crafting_category(category_mapping)
 end
