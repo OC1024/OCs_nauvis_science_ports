@@ -3,7 +3,7 @@ data:extend({
     type = "bool-setting",
     name = "science-cloning",
     setting_type = "startup",
-    default_value = true,
+    default_value = false,
     order = "a"
   },
 })
