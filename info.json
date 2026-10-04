@@ -1,6 +1,6 @@
 {
   "name": "OCs_nauvis_science_ports",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "title": "OCs Nauvis Science Ports",
   "author": "OC1024",
   "space_travel_required": true,
@@ -9,7 +9,7 @@
   "dependencies": [
     "base >= 2.1.7",
     "space-age",
-    "OCs_base_assets >= 0.5.0",
+    "OCs_base_assets >= 0.6.0",
     "? OCs_alt_sciences >= 0.3.0",
     "+ science-tab"
   ]

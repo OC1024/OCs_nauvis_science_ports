@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.2
+Date: 2026-10-04
+  Minor Features:
+    - Added a new setting to allow the player to choose between 5% or 10% productivity bonus per level for the alternative science techs. 10% is easy mode.
+  Compatibility:
+    - Updated dependency of [OCs Base Assets] to >=0.6.0, where helper functions were re-grouped and calculation errors were fixed.
+  Graphics:
+    - Changed icon paths to use DLC icons instead of base assets.
+  Bugfixes:
+    - For some 2.1 versions, when science packs are no longer "tools", the mod crashed.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date: 2026-07-03
   Other:
