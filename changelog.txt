@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.3
+Date: 2026-10-14
+  Compatibility:
+    - Updated dependency of [OCs Base Assets]
+  Bugfixes:
+    - Fixed that for some mod settings, old functions were called leading to a startup crash.
+    - Alinged the productivity bonus if "easy mode" setting of [OCs Alt Sciences] is true.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.2
 Date: 2026-10-12
   Minor Features:

@@ -121,7 +121,7 @@ if settings.startup["science-cloning"].value then -- deepcopy science pack
       }
     )
   end
-  oc_recipe.change_crafting_categories(category_mapping)
+  oc_recipe.add_crafting_categories(category_mapping)
 else -- just changing the category
   local category_mapping = {
     ["automation-science-pack"] = { "metallurgy" },
