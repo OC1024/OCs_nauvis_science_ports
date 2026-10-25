@@ -84,7 +84,7 @@ if settings.startup["science-cloning"].value then -- deepcopy science pack
     local cloned_recipe = table.deepcopy(data.raw.recipe[base_recipe_name])
     cloned_recipe.name = new_name
     cloned_recipe.localised_name = { "item-name." .. base_recipe_name }
-    cloned_recipe.crafting_categories = { target_category }
+    cloned_recipe.categories = { target_category }
 
     -- make sure the rew recipe has its own icon(s).
     local base_item = data.raw.item[base_recipe_name]
