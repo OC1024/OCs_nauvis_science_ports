@@ -1,43 +1,51 @@
 local oc_tech = require("__OCs_base_assets__.prototypes.utils.oc_tech")
 
 if mods["OCs_alt_sciences"] then
-    log("OCs Alt Sciences Techs are used for OCs Nauvis Science Ports")
+  log("OCs Alt Sciences Techs are used for OCs Nauvis Science Ports")
 
-    local recipe_unlocks = {
-        ["foundry-automation-science-pack"] = "foundry-science-packs-tech",
-        ["foundry-logistic-science-pack"] = "foundry-science-packs-tech",
-        ["foundry-military-science-pack"] = "foundry-science-packs-tech",
-        ["biochamber-chemical-science-pack"] = "biochamber-science-packs-tech",
-        ["biochamber-space-science-pack"] = "biochamber-science-packs-tech",
-        ["emplant-production-science-pack"] = "emp-science-packs-tech",
-        ["emplant-utility-science-pack"] = "emp-science-packs-tech",
-    }
-    oc_tech.add_recipe_unlocks(recipe_unlocks)
+  -- not-cloned
+  local recipe_unlocks = {
+    ["foundry-automation-science-pack"] = "foundry-science-packs-tech",
+    ["foundry-logistic-science-pack"] = "foundry-science-packs-tech",
+    ["foundry-military-science-pack"] = "foundry-science-packs-tech",
+    ["biochamber-chemical-science-pack"] = "biochamber-science-packs-tech",
+    ["biochamber-space-science-pack"] = "biochamber-science-packs-tech",
+    ["emplant-production-science-pack"] = "emp-science-packs-tech",
+    ["emplant-utility-science-pack"] = "emp-science-packs-tech",
+  }
+  oc_tech.add_recipe_unlocks(recipe_unlocks)
 
-    -- add nauvis-science-port recipes to the prod bonus techs
-    local recipe_tech_bonus = {
-        ["foundry-automation-science-pack"] = "foundry-science-packs-productivity-tech",
-        ["foundry-logistic-science-pack"] = "foundry-science-packs-productivity-tech",
-        ["foundry-military-science-pack"] = "foundry-science-packs-productivity-tech",
-        ["biochamber-chemical-science-pack"] = "biochamber-science-packs-productivity-tech",
-        ["biochamber-space-science-pack"] = "biochamber-science-packs-productivity-tech",
-        ["emplant-production-science-pack"] = "emp-science-packs-productivity-tech",
-        ["emplant-utility-science-pack"] = "emp-science-packs-productivity-tech",
-    }
-    for recipe_name, techname in pairs(recipe_tech_bonus) do
-        oc_tech.add_productivity_bonus(techname, recipe_name, 0.05) -- 5% bonus, same as the base science packs
-    end
+  -- add nauvis-science-port recipes to the prod bonus techs
+  local recipe_tech_bonus = {
+    ["foundry-automation-science-pack"] = "foundry-science-packs-productivity-tech",
+    ["foundry-logistic-science-pack"] = "foundry-science-packs-productivity-tech",
+    ["foundry-military-science-pack"] = "foundry-science-packs-productivity-tech",
+    ["biochamber-chemical-science-pack"] = "biochamber-science-packs-productivity-tech",
+    ["biochamber-space-science-pack"] = "biochamber-science-packs-productivity-tech",
+    ["emplant-production-science-pack"] = "emp-science-packs-productivity-tech",
+    ["emplant-utility-science-pack"] = "emp-science-packs-productivity-tech",
+  }
+
+  local bonus
+  if settings.startup["alt-sci-easy-mode"].value then
+    bonus = 0.10 -- productivity bonus per level
+  else
+    bonus = 0.05
+  end
+  for recipe_name, techname in pairs(recipe_tech_bonus) do
+    oc_tech.add_productivity_bonus(techname, recipe_name, bonus) -- 5% bonus, same as the base science packs
+  end
 else
-    log("OCs Alt Sciences not found, OCs Nauvis Science Ports will use default Techs.")
+  log("OCs Alt Sciences not found, OCs Nauvis Science Ports will use default Techs.")
 
-    local recipe_unlocks = {
-        ["foundry-automation-science-pack"] = "automation-science-pack",
-        ["foundry-logistic-science-pack"] = "logistic-science-pack",
-        ["foundry-military-science-pack"] = "military-science-pack",
-        ["biochamber-chemical-science-pack"] = "chemical-science-pack",
-        ["biochamber-space-science-pack"] = "space-science-pack",
-        ["emplant-production-science-pack"] = "production-science-pack",
-        ["emplant-utility-science-pack"] = "utility-science-pack",
-    }
-    oc_tech.add_recipe_unlocks(recipe_unlocks)
+  local recipe_unlocks = {
+    ["foundry-automation-science-pack"] = "automation-science-pack",
+    ["foundry-logistic-science-pack"] = "logistic-science-pack",
+    ["foundry-military-science-pack"] = "military-science-pack",
+    ["biochamber-chemical-science-pack"] = "chemical-science-pack",
+    ["biochamber-space-science-pack"] = "space-science-pack",
+    ["emplant-production-science-pack"] = "production-science-pack",
+    ["emplant-utility-science-pack"] = "utility-science-pack",
+  }
+  oc_tech.add_recipe_unlocks(recipe_unlocks)
 end

@@ -1,5 +1,4 @@
 local icon_helper = require("__OCs_base_assets__.prototypes.utils.icon_helper")
-local oc_helper = require("__OCs_base_assets__.prototypes.utils.helper")
 local oc_recipe = require("__OCs_base_assets__.prototypes.utils.oc_recipe")
 
 if settings.startup["science-cloning"].value then -- deepcopy science pack
@@ -78,14 +77,14 @@ if settings.startup["science-cloning"].value then -- deepcopy science pack
 
   for new_name, data_in in pairs(science_ports) do
     local base_recipe_name = data_in[1]
-    local target_category  = data_in[2]
-    local target_overlay   = data_in[3]
-
-    local cloned_recipe    = table.deepcopy(data.raw.recipe[base_recipe_name])
-    cloned_recipe.name     = new_name
+    local target_category = data_in[2]
+    local target_overlay = data_in[3]
+    local cloned_recipe = table.deepcopy(data.raw.recipe[base_recipe_name])
+    cloned_recipe.name = new_name
+    cloned_recipe.localised_name = { "recipe-name." .. base_recipe_name }
 
     -- make sure the rew recipe has its own icon(s).
-    local base_item        = data.raw.item[base_recipe_name]
+    local base_item = data.raw.item[base_recipe_name]
     if base_item then
       if base_item.icons then
         cloned_recipe.icons = table.deepcopy(base_item.icons)
@@ -102,13 +101,9 @@ if settings.startup["science-cloning"].value then -- deepcopy science pack
 
     -- change subgroup
     cloned_recipe.subgroup = "science-pack-alternative"
-
-    data:extend({ cloned_recipe })
-
     category_mapping[new_name] = target_category
-
+    data:extend({ cloned_recipe })
     oc_recipe.change_recipes_subgroup({ [new_name] = "science-pack-alternative" })
-
     icon_helper.apply_overlay(
       "recipe",
       new_name,
@@ -122,7 +117,7 @@ if settings.startup["science-cloning"].value then -- deepcopy science pack
     )
   end
   oc_recipe.add_crafting_categories(category_mapping)
-else -- just changing the category
+else -- just add the crafting category
   local category_mapping = {
     ["automation-science-pack"] = { "metallurgy" },
     ["logistic-science-pack"]   = { "metallurgy" },
