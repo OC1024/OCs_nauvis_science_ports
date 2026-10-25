@@ -1,8 +1,10 @@
 local icon_helper = require("__OCs_base_assets__.prototypes.utils.icon_helper")
 local oc_recipe = require("__OCs_base_assets__.prototypes.utils.oc_recipe")
 
+-- space fish for bio rockets in space
+data.raw.recipe["space-fish-breeding"].hidden = false
+
 if settings.startup["science-cloning"].value then -- deepcopy science pack
-  local category_mapping = {}
   local science_ports = {
     ["foundry-automation-science-pack"] = {
       "automation-science-pack",
@@ -81,7 +83,8 @@ if settings.startup["science-cloning"].value then -- deepcopy science pack
     local target_overlay = data_in[3]
     local cloned_recipe = table.deepcopy(data.raw.recipe[base_recipe_name])
     cloned_recipe.name = new_name
-    cloned_recipe.localised_name = { "recipe-name." .. base_recipe_name }
+    cloned_recipe.localised_name = { "item-name." .. base_recipe_name }
+    cloned_recipe.crafting_categories = { target_category }
 
     -- make sure the rew recipe has its own icon(s).
     local base_item = data.raw.item[base_recipe_name]
@@ -101,7 +104,6 @@ if settings.startup["science-cloning"].value then -- deepcopy science pack
 
     -- change subgroup
     cloned_recipe.subgroup = "science-pack-alternative"
-    category_mapping[new_name] = target_category
     data:extend({ cloned_recipe })
     oc_recipe.change_recipes_subgroup({ [new_name] = "science-pack-alternative" })
     icon_helper.apply_overlay(
@@ -116,7 +118,6 @@ if settings.startup["science-cloning"].value then -- deepcopy science pack
       }
     )
   end
-  oc_recipe.add_crafting_categories(category_mapping)
 else -- just add the crafting category
   local category_mapping = {
     ["automation-science-pack"] = { "metallurgy" },

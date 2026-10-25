@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.5
+Date: 2026-10-25
+  Bugfixes:
+    - Vanilla localisation are for items, not recipes. This lead to not showing up the correct names.
+    - Fixed that in cloning science pack mode, the clones were able to be crafted in normal assemblers as well.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.4
 Date: 2026-10-25
   Translation:

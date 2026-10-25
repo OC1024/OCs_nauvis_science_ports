@@ -3,7 +3,8 @@ local oc_tech = require("__OCs_base_assets__.prototypes.utils.oc_tech")
 if mods["OCs_alt_sciences"] then
   log("OCs Alt Sciences Techs are used for OCs Nauvis Science Ports")
 
-  -- not-cloned
+  -- Note: if not-cloned, then the recipes are already correctly unlocked with its corresponding techs.
+  -- unlocked cloned recipes
   local recipe_unlocks = {
     ["foundry-automation-science-pack"] = "foundry-science-packs-tech",
     ["foundry-logistic-science-pack"] = "foundry-science-packs-tech",
@@ -26,14 +27,9 @@ if mods["OCs_alt_sciences"] then
     ["emplant-utility-science-pack"] = "emp-science-packs-productivity-tech",
   }
 
-  local bonus
-  if settings.startup["alt-sci-easy-mode"].value then
-    bonus = 0.10 -- productivity bonus per level
-  else
-    bonus = 0.05
-  end
+  local bonus = 0.1 and settings.startup["alt-sci-easy-mode"].value or 0.05
   for recipe_name, techname in pairs(recipe_tech_bonus) do
-    oc_tech.add_productivity_bonus(techname, recipe_name, bonus) -- 5% bonus, same as the base science packs
+    oc_tech.add_productivity_bonus(techname, recipe_name, bonus)
   end
 else
   log("OCs Alt Sciences not found, OCs Nauvis Science Ports will use default Techs.")

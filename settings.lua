@@ -7,3 +7,4 @@ data:extend({
     order = "a"
   },
 })
+data.raw["bool-setting"]["space-fish"].hidden = false
