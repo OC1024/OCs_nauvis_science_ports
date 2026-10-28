@@ -2,7 +2,9 @@ local icon_helper = require("__OCs_base_assets__.prototypes.utils.icon_helper")
 local oc_recipe = require("__OCs_base_assets__.prototypes.utils.oc_recipe")
 
 -- space fish for bio rockets in space
-data.raw.recipe["space-fish-breeding"].hidden = false
+if settings.startup["space-fish"] and settings.startup["space-fish"].value then
+  data.raw.recipe["space-fish-breeding"].hidden = false
+end
 
 if settings.startup["science-cloning"].value then -- deepcopy science pack
   local science_ports = {
